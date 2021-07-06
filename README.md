@@ -10,6 +10,7 @@ Setup is relatively straightforward.
 - Within `main.py`, add one or more messages to the `messages` list. The messages are what will be sent in chat.
 - Use `pyautogui.position()` in a command prompt or IDLE to find the correct mouse position for the Discord text box. Make sure that the coordinates are located within the message field in Discord. Enter the x and y coordinates into the `x` and `y` variables in `main.py`
 That's all the required configuration for the program to work. Simply run `python main.py` in a command prompt to begin the program.
+
 **NOTE: Do not move the mouse or type on your keyboard while the program is active, it uses your mouse and keyboard to send messages!**
 
 To exit the program, press `Ctrl+C` in the command prompt or press `z` (exit key configurable; see below).
