@@ -1,0 +1,20 @@
+{
+    "messages": [
+        "bean1",
+        "bean2",
+        "bean3",
+        "bean4"
+    ],
+    "cursor": {
+        "x": 2508,
+        "y": 1018
+    },
+    "delays": {
+        "type": 0.001,
+        "msg": "[x for x in range(0, 20)]"
+    },
+    "exit": {
+        "key": "z",
+        "msg": "sufficiently annoyed spammers"
+    }
+}

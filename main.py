@@ -1,49 +1,47 @@
-from pyautogui import moveTo, click
-from keyboard import is_pressed, write, send
-from random import shuffle, choice
-from time import sleep
+#########################
+# Discord Spam Solution #
+#   by nethe550 (2021)  #
+# Under GPL-3.0 license #
+#########################
 
+from keyboard import is_pressed, write, send
+from pyautogui import moveTo, click
+
+from time import sleep, time, gmtime, strftime
+from random import shuffle, choice
+from json import loads
 
 def get_new_message():
-    new = messages[:]
+    new = config["messages"][:]
     shuffle(new)
     return choice(new)
 
 if __name__ == '__main__':
-    # add messages to fit your taste
-    messages = [
-        "",
-    ]
+    config = open('./config.json', 'r').read()
+    config = loads(config)
 
-    # put the x, y coords of the discord text box on your screen here
-    # use pyautogui.position() to output current mouse position to find the coords easier
-    x = 2508
-    y = 1018
+    num_of_messages = 0
+    start = time()
     
-    # delay between each keypress (note: setting this to 0 will freeze the program)
-    #  default: 0.001
-    type_delay = 0.001
-    
-    # delay between each message send
-    #   default: range(0, 20)
-    msg_delay = [x for x in range(0, 20)]
-    
-    # key to exit program
-    #   default: 'z'
-    exit_key = 'z'
-    
-    # program exit message (optional)
-    #   default: "sufficiently annoyed spammers"
-    exit_msg = "sufficiently annoyed spammers"
-    
-    
-    # =============== # =============== # =============== #
-    
-    
-    while not is_pressed(exit_key):
-        moveTo(x, y)
-        click()
-        write(get_new_message(), delay=type_delay, restore_state_after=False, exact=None)
-        sleep(choice([x for x in range(0, 20)]))
-        send('enter')
-    print(exit_msg)
+    try:
+        while not is_pressed(config["exit"]["key"]):
+            moveTo(config["cursor"]["x"], config["cursor"]["y"])
+            click()
+            write(
+                get_new_message(), 
+                delay=config["delays"]["type"], 
+                restore_state_after=False, 
+                exact=None
+            )
+            sleep(int(choice(eval(config["delays"]["msg"]))))
+            send('enter')
+            num_of_messages = num_of_messages + 1
+    except KeyboardInterrupt:
+        end = time()
+        elapsed = end - start
+        secs = gmtime(round(elapsed))
+        time_ = strftime("%H:%M:%S", secs)
+        
+        print(f'Sent {num_of_messages} messages over a {time_} period.')
+        print(config["exit"]["msg"])
+        exit()
