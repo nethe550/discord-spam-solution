@@ -7,6 +7,7 @@ To the maximum extent permitted by Discord's TOS, GPL-3.0, and common sense, I a
 
 ## Setup
 Setup is relatively straightforward.
+
 Settings (`config.json`):
 - `messages`: a list of messages to send in chat
 - `cursor`:
