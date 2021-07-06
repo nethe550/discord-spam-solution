@@ -10,14 +10,14 @@ Setup is relatively straightforward.
 Settings (`config.json`):
 - `messages`: a list of messages to send in chat
 - `cursor`:
- - `x`: horizontal screen coordinate of Discord message box
- - `y`: vertical screen coordinate of Discord message box
+ * `x`: horizontal screen coordinate of Discord message box
+ * `y`: vertical screen coordinate of Discord message box
 - `delays`:
- - `type`: delay between keypresses when sending a message (0 < delay)
- - `msg`: random range of delays between messages (python interpreted list)
+ * `type`: delay between keypresses when sending a message (0 < delay)
+ * `msg`: random range of delays between messages (python interpreted list)
 - `exit`:
- - `key`: keypress to exit program
- - `msg`: message displayed in console when program finishes execution
+ * `key`: keypress to exit program
+ * `msg`: message displayed in console when program finishes execution
 
 ### Steps for proper setup:
 1. Find the screen coordinates of your Discord's message box. Use the `find_mouse_coords.py` to get the screen coordinates of your mouse; place your mouse on the Discord message box and enter the x, y values into `config.json`. Make sure you do not move your Discord window after this, or you will have to re-set the coordinates.
