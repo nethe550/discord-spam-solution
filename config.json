@@ -1,13 +1,10 @@
 {
     "messages": [
-        "bean1",
-        "bean2",
-        "bean3",
-        "bean4"
+        ""
     ],
     "cursor": {
-        "x": 2508,
-        "y": 1018
+        "x": 0,
+        "y": 0
     },
     "delays": {
         "type": 0.001,
